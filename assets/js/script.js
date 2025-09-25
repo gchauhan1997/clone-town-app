@@ -9,3 +9,19 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
+  // Select all submenu elements and hide them by default
+  document.querySelectorAll(".submenu-mobile").forEach(sub => {
+    sub.style.display = "none";
+  });
+
+  // Add click event for each menu item
+  document.querySelectorAll(".menu-li-mobile").forEach(menu => {
+    menu.addEventListener("click", () => {
+      const submenu = menu.querySelector(".submenu-mobile");
+      if (submenu) {
+        submenu.style.display =
+          submenu.style.display === "block" ? "none" : "block";
+      }
+    });
+  });
