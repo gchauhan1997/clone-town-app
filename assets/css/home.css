@@ -815,11 +815,11 @@ data-styled.g8[id="Link__ExternalLink-sc-gpdhih-1"] {
 }
 
 /*!sc*/
-.ixxpYp:hover,
+/* .ixxpYp:hover,
 .ixxpYp.is-current {
     font-weight: 700;
     color: var(--text-01) !important;
-}
+} */
 
 /*!sc*/
 .ixxpYp:hover+ul,
@@ -924,9 +924,9 @@ data-styled.g12[id="Navigation__SubArrow-sc-o5xf0x-2"] {
 }
 
 /*!sc*/
-.jYtnqt:hover>a {
+/* .jYtnqt:hover>a {
     font-weight: 700;
-}
+} */
 
 /*!sc*/
 .jYtnqt:hover>.Navigation__DesktopList-sc-o5xf0x-1 {
