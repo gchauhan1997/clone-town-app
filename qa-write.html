@@ -2,11 +2,11 @@
 <html lang="ko">
 
 <head>
-  <title>Deposit</title>
+  <title>Qa Write </title>
   <meta charSet="utf-8" />
   <meta name="viewport"
     content="width=device-width, initial-scale=1, maximum-scale=5, minimum-scale=1, viewport-fit=cover" />
-  <meta name="next-head-count" content="22" />
+
   <script>
     const theme = window.localStorage.getItem('theme') || 'light'
     const root = window.document.documentElement
@@ -22,179 +22,105 @@
     })
   </script>
 
-  <link rel="stylesheet" href="assets/css/pr-inner.css">
+  <link rel="stylesheet" href="assets/css/news.css">
   <style>
-    .my-page-inner {
+    .container {
+      width: 1400px;
+      margin: 50px auto;
+      padding: 20px;
       width: 100%;
-      max-width: 1500px;
-      margin: 0 auto;
-      padding: 60px 20px;
-    }
-
-    /* Tabs */
-    .tabs {
-      display: flex;
-      border-bottom: 1px solid #ddd;
-      background: #f9f9f9;
-      white-space: nowrap;
-      overflow-x: auto;
-      gap: 12px;
-    }
-
-    .tabs .tab-btn {
-      flex: 1;
-      padding: 14px;
-      border: none;
-      background: none;
-      cursor: pointer;
-      font-size: 15px;
-      color: #333;
-      transition: background 0.2s;
       text-align: center;
     }
 
-    .tabs .tab-btn.active {
-      border-bottom: 3px solid #007bff !important;
-      font-weight: bold;
-      color: #007bff;
-      border-radius: 0;
-    }
-
-    .tabs .tab-btn:hover {
-      background: #f0f0f0;
-    }
-
-    .deposit-header {
+    h2 {
       text-align: center;
-      font-size: 20px;
-      font-weight: bold;
+      font-size: 22px;
       margin-bottom: 20px;
     }
 
-    .amount-box {
+    .form-group {
       display: flex;
-      justify-content: space-between;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      padding: 8px 12px;
-      margin-bottom: 15px;
+      align-items: flex-start;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      padding: 15px 0;
     }
 
-    .amount-box input {
-      border: none;
-      flex: 1;
+    .form-group label {
+      width: 100px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #333;
+      margin-right: 15px;
       text-align: right;
-      font-size: 16px;
-      outline: none;
     }
 
-    .label-box {
-      text-align: center;
-      background: #0052cc;
-      color: #fff;
-      font-size: 14px;
-      font-weight: bold;
-      padding: 10px;
-      margin-bottom: 10px;
-      border-radius: 4px;
-    }
-
-    .quick-buttons {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 15px;
-    }
-
-    .quick-buttons button {
+    .form-group input,
+    .form-group textarea {
       flex: 1;
       padding: 10px;
       border: 1px solid #ccc;
-      background: #f9f9f9;
-      cursor: pointer;
-      border-radius: 4px;
+      border-radius: 3px;
       font-size: 14px;
     }
 
-    .quick-buttons button:hover {
-      background: #eee;
+    .form-group textarea {
+      height: 200px;
+      resize: none;
     }
 
-    .submit-btn {
-      width: 100%;
-      padding: 14px;
-      background: #0052cc;
+    .buttons {
+      text-align: right;
+      margin-top: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 14px;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-left: 5px;
+      border: 1px solid #2d5fb3;
+      transition: 0.2s;
+    }
+
+    .btn-list {
+      background: #fff;
+      color: #2d5fb3;
+    }
+
+    .btn-list:hover {
+      background: #f0f6ff;
+    }
+
+    .btn-submit {
+      background: #2d5fb3;
       color: #fff;
-      font-size: 16px;
-      font-weight: bold;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      margin-bottom: 10px;
     }
 
-    .secondary-btn {
-      width: 100%;
-      padding: 12px;
-      background: #ddd;
-      color: #333;
-      font-size: 15px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      margin-bottom: 20px;
+    .btn-submit:hover {
+      background: #1d4a91;
     }
 
-    .notice-box {
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      padding: 16px;
-      margin-bottom: 20px;
-      background: #fafafa;
-    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      .form-group {
+        flex-direction: column;
+        align-items: stretch;
+      }
 
-    .notice-box h4 {
-      margin: 0 0 10px;
-      font-size: 15px;
-      font-weight: bold;
-    }
-
-    .notice-box ol {
-      padding-left: 18px;
-      margin: 0;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .history-title {
-      text-align: center;
-      font-size: 15px;
-      font-weight: bold;
-      margin: 20px 0 10px;
-    }
-
-    .history-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-    }
-
-    .history-table th,
-    .history-table td {
-      border-bottom: 1px solid #ddd;
-      padding: 10px;
-      text-align: center;
-    }
-
-    .history-table th {
-      background: #f1f1f1;
-      font-weight: bold;
+      .form-group label {
+        width: auto;
+        text-align: left;
+        margin-bottom: 8px;
+      }
     }
   </style>
-
 </head>
 
 <body>
-  <div>
+  <div id="__next">
     <div class="StandardLayout__Wrapper-sc-fekk6l-0 gTIvjt">
       <!-- header -->
       <header class="Header__Wrapper-sc-1ytm4f-0 fKcdcq">
@@ -375,81 +301,27 @@
         </div>
       </header>
       <!-- header -->
+
       <main class="Main__Wrapper-sc-bu0qth-0 iLrnVF">
-        <div class="my-page-container">
-          <!-- Tabs -->
-          <div class="tabs">
-            <a class="tab-btn" href="my-page.html">요약</a>
-            <a class="tab-btn" href="my-wind.html">투자내역</a>
-            <a class="tab-btn active" href="deposit.html">입금</a>
-            <a class="tab-btn" href="withdrawl.html">출금</a>
-            <a class="tab-btn" href="payment-status.html">수익금 지급 현황</a>
-            <a class="tab-btn" href="inbox.html">쪽지함</a>
-
-          </div>
-          <div class="my-page-inner">
-            <div class="deposit-container">
-              <div class="deposit-header">입금 하기</div>
-
-              <div class="amount-box">
-                <input type="number" value="0"> 원
-              </div>
-
-              <div class="label-box">최소 입금가능금액 입력</div>
-
-              <div class="quick-buttons">
-                <button>100만원</button>
-                <button>500만원</button>
-                <button>1,000만원</button>
-                <button>5,000만원</button>
-                <button>초기화</button>
-              </div>
-
-              <button class="submit-btn">입금신청</button>
-              <button class="secondary-btn">계좌문의</button>
-
-              <div class="notice-box">
-                <h4>입금 시 주의 사항</h4>
-                <ol>
-                  <li>입금 전 계좌모임을 통해 입금 전용계좌번호를 확인하신 후 입금하시길 바랍니다.</li>
-                  <li>1인 1회 최대 입금 가능 한도는 1,000만원입니다. (초과되는 금액을 입금하실 경우 분할하여 입금 가능합니다.)</li>
-                  <li>투자 신청 시 입금 금액은 만원 단위로만 가능합니다. 최초 투자 금액은 최소 100만원입니다.</li>
-                </ol>
-              </div>
-
-              <div class="history-title">입금 승인 내역</div>
-              <div style="overflow-x: auto;">
-                <table class="history-table">
-                  <thead>
-                    <tr>
-                      <th>신청날짜</th>
-                      <th>신청내역</th>
-                      <th>신청금액</th>
-                      <th>상태</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>2025-08-27 23:33</td>
-                      <td>입금</td>
-                      <td>10,000,000</td>
-                      <td>완료</td>
-                    </tr>
-                    <tr>
-                      <td>2025-08-27 13:08</td>
-                      <td>입금</td>
-                      <td>1,000,000</td>
-                      <td>취소</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+        <div class="container">
+          <h2>1:1문의하기</h2>
+          <form>
+            <div class="form-group">
+              <label for="title">제목</label>
+              <input type="text" id="title" name="title" required>
             </div>
-
-          </div>
+            <div class="form-group">
+              <label for="content">내용</label>
+              <textarea id="content" name="content"></textarea>
+            </div>
+            <div class="buttons">
+              <a href="qa-list.html" type="button" class="btn btn-list">목록으로</a>
+              <button type="submit" class="btn btn-submit">글쓰기</button>
+            </div>
+          </form>
         </div>
-
       </main>
+
       <footer class="Footer__Wrapper-sc-vbjbll-0 loGBJo">
         <div class="Inner-sc-zoh9d9-0 dfDrXB">
           <div class="Footer__Top-sc-vbjbll-1 bQmtsb">
@@ -458,7 +330,7 @@
               <li class="Footer__SNSItem-sc-vbjbll-3 dqqjTJ"><a href="https://www.instagram.com/millie_bookclub/"
                   target="_blank" rel="noopener noreferrer" class="Link__ExternalLink-sc-gpdhih-1 eArUAj"><span
                     class="SrOnly-sc-1w36qd2-0 jcVzmJ">인스타그램 바로가기</span><svg width="12" height="12" fill="none"
-                    xmlns="#www.w3.org/2000/svg">
+                    xmlns="http://www.w3.org/2000/svg">
                     <path d="M7.186 7.613a2 2 0 1 0-2.37-3.222 2 2 0 0 0 2.37 3.222Z" fill="#6F6F6F"></path>
                     <path
                       d="M11.964 3.527c-.03-.639-.132-1.075-.279-1.456a2.942 2.942 0 0 0-.693-1.063A2.922 2.922 0 0 0 9.93.318c-.383-.15-.819-.25-1.457-.28C7.833.008 7.628.001 6 .001S4.166.008 3.526.037c-.638.029-1.075.13-1.456.279a2.955 2.955 0 0 0-1.062.691A2.953 2.953 0 0 0 .315 2.07c-.149.381-.25.817-.279 1.456C.008 4.167 0 4.371 0 6.001c0 1.63.007 1.834.036 2.474.029.638.13 1.075.279 1.456.154.395.359.729.693 1.063.333.333.667.538 1.062.692.381.149.818.25 1.456.279.64.028.844.036 2.474.036 1.63 0 1.834-.008 2.474-.036.639-.029 1.075-.13 1.457-.279a2.943 2.943 0 0 0 1.063-.693c.334-.333.539-.668.692-1.062.148-.381.249-.818.279-1.456C11.992 7.835 12 7.63 12 6c0-1.63-.008-1.834-.036-2.474ZM6 9.082A3.081 3.081 0 1 1 6 2.92a3.081 3.081 0 0 1 0 6.162Zm3.204-5.564a.72.72 0 1 1 0-1.44.72.72 0 0 1 0 1.44Z"
@@ -468,7 +340,7 @@
                   href="https://www.youtube.com/channel/UC6bk8AaEXA1hBnGXcLyj1QQ" target="_blank"
                   rel="noopener noreferrer" class="Link__ExternalLink-sc-gpdhih-1 eArUAj"><span
                     class="SrOnly-sc-1w36qd2-0 jcVzmJ">유튜브 채널 바로가기</span><svg width="12" height="10" fill="none"
-                    xmlns="#www.w3.org/2000/svg">
+                    xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M11.753 2.115a1.502 1.502 0 0 0-1.057-1.057C9.756.8 6 .8 6 .8s-3.758 0-4.697.247A1.53 1.53 0 0 0 .247 2.115C0 3.055 0 5.002 0 5.002S0 6.96.247 7.889c.138.514.544.919 1.057 1.057.95.257 4.697.257 4.697.257s3.756 0 4.695-.247c.514-.138.92-.545 1.057-1.057C12 6.959 12 5.012 12 5.012s.01-1.958-.247-2.897ZM4.804 6.802v-3.6l3.124 1.8-3.124 1.8Z"
                       fill="#6F6F6F"></path>
@@ -476,7 +348,7 @@
               <li class="Footer__SNSItem-sc-vbjbll-3 dqqjTJ"><a href="https://pf.kakao.com/_MhGhC" target="_blank"
                   rel="noopener noreferrer" class="Link__ExternalLink-sc-gpdhih-1 eArUAj"><span
                     class="SrOnly-sc-1w36qd2-0 jcVzmJ">카카오톡 채널 바로가기</span><svg width="12" height="12" fill="none"
-                    xmlns="#www.w3.org/2000/svg">
+                    xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M6 .001c-3.314 0-6 2.118-6 4.73 0 1.69 1.123 3.172 2.812 4.01-.092.316-.59 2.038-.61 2.174 0 0-.012.101.054.14.066.039.143.008.143.008.189-.026 2.19-1.43 2.535-1.675.346.05.702.075 1.066.075 3.314 0 6-2.118 6-4.731S9.314 0 6 0ZM3.029 6.053c0 .182-.155.33-.346.33a.339.339 0 0 1-.346-.33V3.996h-.54a.34.34 0 1 1 0-.678h1.772a.34.34 0 1 1 0 .678h-.54v2.057Zm2.91.278a.53.53 0 0 1-.221.048c-.144 0-.255-.059-.288-.153l-.171-.449H4.203l-.171.45c-.034.093-.144.152-.288.152a.528.528 0 0 1-.22-.048c-.096-.044-.188-.165-.082-.492L4.27 3.66a.522.522 0 0 1 .46-.342.522.522 0 0 1 .462.342L6.02 5.84c.105.327.014.448-.082.492Zm1.749.002H6.577a.325.325 0 0 1-.332-.318v-2.35a.35.35 0 0 1 .354-.347.35.35 0 0 1 .353.346v2.034h.735c.183 0 .332.143.332.317a.325.325 0 0 1-.331.318Zm2.71-.26a.344.344 0 0 1-.343.297.343.343 0 0 1-.277-.137l-.812-1.076-.12.12v.755a.347.347 0 0 1-.692 0V3.665a.347.347 0 0 1 .692 0v.744l.966-.965a.269.269 0 0 1 .192-.077c.087 0 .173.037.238.102.06.06.097.138.102.22a.27.27 0 0 1-.076.21l-.79.789.853 1.129c.055.073.08.165.066.256Z"
                       fill="#6F6F6F"></path>
@@ -523,7 +395,7 @@
       </footer>
     </div>
   </div>
-    <script src="assets/js/script.js"></script>
+  <script src="assets/js/script.js"></script>
   <link rel="stylesheet" href="assets/css/common-style.css">
 </body>
 
