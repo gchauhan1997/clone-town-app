@@ -10,18 +10,31 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-  // Select all submenu elements and hide them by default
-  document.querySelectorAll(".submenu-mobile").forEach(sub => {
-    sub.style.display = "none";
-  });
+// Select all submenu elements and hide them by default
+document.querySelectorAll(".submenu-mobile").forEach(sub => {
+  sub.style.display = "none";
+});
 
-  // Add click event for each menu item
-  document.querySelectorAll(".menu-li-mobile").forEach(menu => {
-    menu.addEventListener("click", () => {
-      const submenu = menu.querySelector(".submenu-mobile");
-      if (submenu) {
-        submenu.style.display =
-          submenu.style.display === "block" ? "none" : "block";
-      }
-    });
+// Add click event for each menu item
+document.querySelectorAll(".menu-li-mobile").forEach(menu => {
+  menu.addEventListener("click", () => {
+    const submenu = menu.querySelector(".submenu-mobile");
+    if (submenu) {
+      submenu.style.display =
+        submenu.style.display === "block" ? "none" : "block";
+    }
   });
+});
+
+document.querySelectorAll('.Accordion__Wrapper-sc-1tqkz2w-0').forEach(wrapper => {
+  wrapper.addEventListener('click', () => {
+    // remove active class from all summaries (optional)
+    document.querySelectorAll('.Accordion__Details-sc-1tqkz2w-3').forEach(summary => {
+      summary.classList.remove('active');
+    });
+
+    // add active class to the clicked one
+    const summary = wrapper.querySelector('.Accordion__Details-sc-1tqkz2w-3');
+    if (summary) summary.classList.toggle('active');
+  });
+});

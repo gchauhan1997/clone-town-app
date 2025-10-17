@@ -7,3 +7,7 @@ body header nav ul li a {
 body header.home-page nav ul li a {
     font-weight: 500;
 }
+
+.Accordion__Wrapper-sc-1tqkz2w-0 .Accordion__Details-sc-1tqkz2w-3.active {
+    display: block !important;
+}
