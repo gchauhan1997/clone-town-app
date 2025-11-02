@@ -27972,3 +27972,27 @@ body.padding .back-component.sticky:before {
     overflow: hidden;
     overflow-x: auto !important;
 }
+
+.brand-frm .keyvisual-frm .keyvisual-box .keyvisual-blk .txt-blk[data-v-25913ee2] {
+    padding: 10px;
+    background: #00000073;
+    border-radius: 12px;
+}
+
+@media (max-width: 767px) {
+    .mobile-img-banner {
+        display: block;
+    }
+    .web-img-banner {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .mobile-img-banner {
+        display: none;
+    }
+    .web-img-banner {
+        display: block;
+    }
+}

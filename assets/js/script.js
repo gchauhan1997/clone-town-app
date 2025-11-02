@@ -38,3 +38,58 @@ document.querySelectorAll('.Accordion__Wrapper-sc-1tqkz2w-0').forEach(wrapper =>
     if (summary) summary.classList.toggle('active');
   });
 });
+
+
+// Generic handler: make pagination bullets clickable for all Swiper-like sliders on the page
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.swiper-pagination').forEach(pagination => {
+    const bullets = pagination.querySelectorAll('.swiper-pagination-bullet');
+    if (!bullets || bullets.length === 0) return;
+
+    bullets.forEach((bullet, idx) => {
+      bullet.addEventListener('click', function () {
+        // set active bullet
+        bullets.forEach(b => b.classList.remove('swiper-pagination-bullet-active'));
+        bullet.classList.add('swiper-pagination-bullet-active');
+
+        // find nearest ancestor that contains a .swiper-wrapper
+        let container = pagination;
+        let wrapper = null;
+        while (container) {
+          wrapper = container.querySelector('.swiper-wrapper');
+          if (wrapper) break;
+          container = container.parentElement;
+        }
+        // fallback to first .swiper-wrapper on page
+        if (!wrapper) wrapper = document.querySelector('.swiper-wrapper');
+        if (!wrapper) return;
+
+        const slides = Array.from(wrapper.querySelectorAll('.swiper-slide'));
+        if (slides.length === 0) return;
+
+        // Prefer a non-duplicate slide matching data-swiper-slide-index
+        let target = slides.find(s => s.getAttribute('data-swiper-slide-index') == idx && !s.classList.contains('swiper-slide-duplicate'));
+        if (!target) target = slides.find(s => s.getAttribute('data-swiper-slide-index') == idx) || slides[idx % slides.length];
+
+        // clear positional classes
+        slides.forEach(s => s.classList.remove('swiper-slide-active', 'swiper-slide-prev', 'swiper-slide-next'));
+
+        const targetIndex = slides.indexOf(target);
+        if (targetIndex === -1) return;
+
+        // set active/prev/next classes
+        slides[targetIndex].classList.add('swiper-slide-active');
+        if (slides[targetIndex - 1]) slides[targetIndex - 1].classList.add('swiper-slide-prev');
+        if (slides[targetIndex + 1]) slides[targetIndex + 1].classList.add('swiper-slide-next');
+
+        // Translate wrapper so the target slide is visible
+        let offset = 0;
+        for (let i = 0; i < targetIndex; i++) {
+          offset += slides[i].getBoundingClientRect().width;
+        }
+        wrapper.style.transitionDuration = '300ms';
+        wrapper.style.transform = `translate3d(-${offset}px, 0px, 0px)`;
+      });
+    });
+  });
+});
